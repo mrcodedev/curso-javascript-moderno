@@ -58,6 +58,19 @@ let arr2 = [4,5,6];
 
 console.log(arr1.concat(arr2));
 
+//Ordenar un array con letras
+const frutas = ['Platano', 'Manzana', 'Fresa', 'Naranja'];
+
+frutas.sort();
+console.log(frutas);
+
+//Ordenar numeros
+arr1 = [3, 9, 91, 23, 4, 67, 99, 13];
+//Función que arregla números ya que JS no ordena bien números
+arr1.sort((a, b) => a - b);
+
+console.log(arr1);
+
 //Encontrar un elemento en el arreglo
 console.log(meses.indexOf('Agosto'));
 
