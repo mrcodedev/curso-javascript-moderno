@@ -31,27 +31,36 @@ function cargarNombres(e) {
         url += `amount=${cantidad}&`
     }
 
-    // crear Fetch
-    fetch(url)
-        .then((res) => {
-            return res.json();
-        })
-        .then((data) => {
-            let html = `<h2>Nombres Generados</h2>`;
+    //Conectar con AJAX
+    //Iniciar XMLHTTPRequest
+    const xhr = new XMLHttpRequest();
 
-            html += `<ul class="lista">`;
-            
-            data.forEach((nombre) => {
-                html += `
+    //Abrimos la conexión
+    xhr.open('GET', url, true);
+
+    //Datos e impresion del template
+    xhr.onload = function() {
+        if(this.status === 200) {
+            const nombres = JSON.parse(this.responseText);
+
+            //Generar el HTML
+            let htmlNombres = `<h2>Nombres generados</h2>`;
+
+            htmlNombres += `<ul class="lista">`;
+
+            //Imprimir cada nombre
+            nombres.forEach((nombre) => {
+                htmlNombres += `
                     <li>${nombre.name}</li>
                 `;
             });
-            
-            html += `</ul>`;
 
-            document.querySelector('#resultado').innerHTML = html;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+            htmlNombres += `</ul>`;
+
+            document.getElementById('resultado').innerHTML = htmlNombres;
+        }
+    }
+
+    //Enviar el Request
+    xhr.send();
 }
