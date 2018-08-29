@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <h1 class="center">Cotiza Criptomonedas al Instante</h1>
+    </div>
+    <div class="container contenido-principal">
+        <!-- Page Content goes here -->
+        <div class="row">
+            <form class="col s8 offset-s2" id="formulario">
+                <div class="row">
+                    <div class="formulario-cotizar">
+                        <div class="input-field col s12">
+                                <select id="moneda">
+                                    <option value="" disabled selected>Elige tu Moneda </option>
+                                    <option value="USD">Dolar Estadounidense</option>
+                                    <option value="MXN">Peso Mexicano</option>
+                                    <option value="GBP">Libras</option>
+                                    <option value="EUR">Euros</option>
+                                </select>
+                                <label>Moneda</label>
+                        </div>    
+                        <div class="input-field col s12">
+                            <select id="criptomoneda">
+                                <option value="" disabled selected>Elige Criptomoneda</option>
+                            </select>
+                            <label>Criptomoneda</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <button class="btn waves-effect waves-light orange darken-3" type="submit" name="action">Cotizar
+                                <i class="material-icons right">attach_money</i>
+                            </button>
+                        </div>
+                        <div class="mensajes col s12"></div>
+                        <div class="spinner"></div>
+                        <div id="resultado" class="col s12"></div>
+                    </div><!--.formulario-cotizar-->
+                  
+                </div>
+            </form>
+        </div>
+
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
+    <script src="js/cotizador.js"></script>
+    <script src="js/interfaz.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+            (function() {
+                $(document).ready(function(){
+                    setTimeout(() => {
+                        $('select').select();
+                    }, 2000);
+                    
+                });
+            })(jQuery);
+        </script>
+      <style>
+          
+          body {
+            background: #136a8a; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #136a8a, #267871); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #136a8a, #267871); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+          }
+          h1 {
+              font-size: 34px;
+              color: white;
+              font-family: 'Playfair Display', serif;
+          }
+          form {
+              margin: 50px auto;
+          }
+          .contenido-principal {
+              margin: 50px auto;
+              background-color: white;
+              -webkit-box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+            -moz-box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+            box-shadow: -1px 20px 52px -13px rgba(0,0,0,0.75);
+          }
+          .mensajes {
+              color: white;
+          }
+          #resultado {
+                text-align: center;
+          }
+          .btn {
+              width: 100%;
+          }
+          .spinner  {
+              text-align: center;
+          }
+      </style>
+</body>
+</html>
