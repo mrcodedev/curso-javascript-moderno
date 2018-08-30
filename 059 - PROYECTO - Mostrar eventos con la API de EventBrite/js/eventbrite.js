@@ -1,6 +1,6 @@
 class EventBrite {
     constructor() {
-        this.token_auth = 'HWVRJA2DIMF636BH6XEY';
+        this.token_auth = 'PON AQUÍ TU API';
         this.ordenar = 'date';
     }
     
